@@ -23,7 +23,7 @@ app.post("/repositories", (request, response) => {
     likes: 0
   }
   repositories.push(repository);
-  return response.status(200).json('Success at creating new repository');
+  return response.status(200).json(repository);
 });
 
 app.put("/repositories/:id", (request, response) => {
@@ -47,7 +47,7 @@ app.delete("/repositories/:id", (request, response) => {
   if(findIndex < 0) return response.status(400).json('Error finding repository');
 
   repositories.splice(findIndex, 1);
-  return response.status(200).send();
+  return response.status(204).send();
 });
 
 app.post("/repositories/:id/like", (request, response) => {
@@ -55,7 +55,7 @@ app.post("/repositories/:id/like", (request, response) => {
   const findIndex = repositories.findIndex(repository => repository.id === id);
   if(findIndex < 0) return response.status(400).json('Error finding repository');
   repositories[findIndex].likes++;
-  return response.status(200).send();
+  return response.status(200).json(repositories[findIndex]);
 });
 
 module.exports = app;
