@@ -29,9 +29,11 @@ app.post("/repositories", (request, response) => {
 app.put("/repositories/:id", (request, response) => {
   const { id } = request.params;
   const { title, url, techs } = request.body;
+
   const findIndex = repositories.findIndex(repository => repository.id === id);
   if(findIndex < 0) return response.status(400).json('Error finding repository');
-  repositories[findIndex] = {...repositories[findIndex], title, url, techs};
+
+  repositories[findIndex] = {id, title, url, techs, likes: repositories[findIndex].likes};
   return response.status(200).json(repositories[findIndex]);
 });
 
