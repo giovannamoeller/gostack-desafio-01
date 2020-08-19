@@ -31,15 +31,8 @@ app.put("/repositories/:id", (request, response) => {
   const { title, url, techs } = request.body;
   const findIndex = repositories.findIndex(repository => repository.id === id);
   if(findIndex < 0) return response.status(400).json('Error finding repository');
-  const repository = {
-    id,
-    title,
-    url,
-    techs,
-    like: repositories[findIndex].like,
-  }
-  repositories[findIndex] = repository;
-  return response.status(200).json('Success at updating repository');
+  repositories[findIndex] = {...repositories[findIndex], title, url, techs};
+  return response.status(200).json(repositories[findIndex]);
 });
 
 app.delete("/repositories/:id", (request, response) => {
