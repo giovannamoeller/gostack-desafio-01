@@ -5,7 +5,7 @@
 <br><br>
 Criação de uma <b>API</b> utilizando métodos <b>HTTP</b> (GET, POST, PUT, DELETE) e testando requisições com o <b>Insomnia</b>. 
 <br><br>
-A API permite a criação de um novo repositório, edição e remoção do mesmo. Além disso, é possível criar uma nova curtida para esse repositório. A correção desse desafio foi feita a partir de testes automatizados. Nota: 10,0.
+A API permite a criação de um novo repositório, edição e remoção do mesmo. Além disso, é possível criar uma nova curtida para esse repositório. A correção desse desafio foi feita a partir de testes automatizados.
 <br><br>
 <b>Tecnologias utilizadas:</b>
 <br>
